@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "../context/useAuth"; 
 import { validateLogin } from "../utils/validators";
 
 
@@ -21,9 +21,9 @@ const Login = () => {
     }
 
     const res = login(form);
-
+console.log("res",res)
     if (res.success) {
-      navigate("/dashboard"); // ✅ redirect works now
+      navigate("/dashboard"); 
     } else {
       setError(res.message);
     }
