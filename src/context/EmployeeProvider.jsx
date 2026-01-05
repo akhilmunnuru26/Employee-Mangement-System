@@ -87,7 +87,7 @@ export default EmployeeProvider;
 //   const [employees, setEmployees] = useState([]);
 //   const [loading, setLoading] = useState(true);
 
-//   // 🔹 Load from localStorage or API
+
 //   const loadEmployees = async () => {
 //     try {
 //       const cached = localStorage.getItem(STORAGE_KEY);
@@ -119,19 +119,17 @@ export default EmployeeProvider;
 //     }
 //   };
 
-//   // 🔹 Initial load
+
 //   useEffect(() => {
 //     loadEmployees();
 //   }, []);
 
-//   // 🔹 Persist on every change
 //   useEffect(() => {
 //     if (!loading) {
 //       localStorage.setItem(STORAGE_KEY, JSON.stringify(employees));
 //     }
 //   }, [employees, loading]);
 
-//   // 🔹 CRUD (client-side)
 //   const addEmployee = (data) => {
 //     setEmployees((prev) => [
 //       { ...data, id: Date.now(), isActive: true },
