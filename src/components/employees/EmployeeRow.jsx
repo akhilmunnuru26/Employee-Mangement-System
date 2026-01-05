@@ -3,6 +3,8 @@ import { useEmployees } from "../../context/useEmployees";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { FaPrint } from "react-icons/fa6";
+import { FaCircleUser } from "react-icons/fa6";
+
 
 
 
@@ -20,19 +22,17 @@ const EmployeeRow = ({ emp }) => {
 
   return (
     <tr className="border-t text-center">
-      <td className="p-2">{emp.id}</td>
-      <td>
-        <img
-  src={emp.avatar || "/avatar.png"}
-  className="w-8 h-8 mx-auto rounded-full"
-/>
-
-      </td>
-      <td>{emp.employee_name}</td>
-      <td>{emp.gender}</td>
-      <td>{emp.dob}</td>
-      <td>{emp.state}</td>
-      <td>
+        <td className="p-2">{emp.id}</td>
+        <td className="text-center">
+            <div className="flex justify-center items-center">
+                <FaCircleUser className="text-lg" />
+            </div>
+        </td>
+        <td>{emp.employee_name}</td>
+        <td>{emp.gender}</td>
+        <td>{emp.dob}</td>
+        <td>{emp.state}</td>
+        <td>
         <button
           onClick={toggleStatus}
           className={`px-2 py-1 rounded text-white ${
@@ -42,13 +42,7 @@ const EmployeeRow = ({ emp }) => {
           {emp.isActive ? "Active" : "Inactive"}
         </button>
       </td>
-      {/* <td className="space-x-2 ">
-        <button className="text-blue-600" name="edit"><FaEdit className="text-lg"/></button>
-        <button className="text-red-600"><MdDeleteOutline className="text-xl mt-2"/></button>
-        <button onClick={() => window.print()} className="text-gray-600">
-          <FaPrint className="text-lg mt-2"/>
-        </button>
-      </td> */}
+      
       <td className="px-3 py-2">
   <div className="flex items-center justify-center gap-4">
     
