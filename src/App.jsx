@@ -6,10 +6,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 const App = () => {
   return (
     <Routes>
-      
       <Route path="/" element={<Login />} />
-
-      
       <Route
         path="/dashboard"
         element={
@@ -17,9 +14,7 @@ const App = () => {
             <Dashboard />
           </ProtectedRoute>
         }
-      />
-
-     
+      />     
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
