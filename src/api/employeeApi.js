@@ -18,5 +18,5 @@ export const createEmployee = (data) =>
 export const updateEmployee = (id, data) =>
   Promise.resolve({ data: { ...data, id } });
 
-export const deleteEmployee = (id) =>
+export const deleteEmployee = () =>
   Promise.resolve({ data: { success: true } });

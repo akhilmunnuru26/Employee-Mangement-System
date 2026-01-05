@@ -78,6 +78,7 @@ const EmployeeModal = ({ open, onClose, mode, employee }) => {
           type="date"
           className="w-full border px-3 py-2 rounded"
           value={form.dob}
+          max={new Date().toISOString().split('T')[0]} 
           onChange={(e) =>
             setForm({ ...form, dob: e.target.value })
           }
