@@ -159,7 +159,6 @@ cd employee-management-system
 
 ## Future Enhancements
 
-  Persist employees in localStorage (Code is Written and it is commented uncomment it if needed)
   Backend integration (Node.js / Firebase)
   Role-based access control
   Toast notifications
