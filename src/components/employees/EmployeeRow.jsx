@@ -108,10 +108,9 @@ import { MdDeleteOutline } from "react-icons/md";
 import { FaPrint } from "react-icons/fa6";
 import { FaCircleUser } from "react-icons/fa6";
 
-const EmployeeRow = ({ emp }) => {
+const EmployeeRow = ({ emp,onEdit }) => {
   const {
-    employees,
-    setEmployees,
+    
     deleteEmployeeById,
     updateEmployeeById,
   } = useEmployees();
@@ -156,6 +155,7 @@ const EmployeeRow = ({ emp }) => {
     <div className="relative group">
        <button
          aria-label="Edit employee"
+         onClick={() => onEdit(emp)}
         className="text-blue-600 hover:text-blue-800 transition"
       >
         <FaEdit className="text-lg" />

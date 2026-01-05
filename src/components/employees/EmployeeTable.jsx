@@ -1,6 +1,6 @@
 import EmployeeRow from "./EmployeeRow";
 
-const EmployeeTable = ({ employees }) => {
+const EmployeeTable = ({ employees, onEdit }) => {
   return (
     <div className="bg-white rounded shadow overflow-x-auto">
       <table className="min-w-full text-sm">
@@ -18,7 +18,7 @@ const EmployeeTable = ({ employees }) => {
         </thead>
         <tbody>
           {employees.map((emp) => (
-            <EmployeeRow key={emp.id} emp={emp} />
+            <EmployeeRow key={emp.id} emp={emp} onEdit={onEdit} />
           ))}
         </tbody>
       </table>
