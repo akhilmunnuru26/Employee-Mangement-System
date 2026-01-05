@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth"; 
 import { validateLogin } from "../utils/validators";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { login } = useAuth();
@@ -32,7 +32,6 @@ console.log("res",res)
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
       <div className="w-full max-w-md bg-white rounded-xl shadow-xl p-8">
-        {/* Header */}
         <div className="text-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800">
             Employee Management
@@ -43,7 +42,6 @@ console.log("res",res)
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium mb-1">
               Email
@@ -59,7 +57,6 @@ console.log("res",res)
             />
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-sm font-medium mb-1">
               Password
