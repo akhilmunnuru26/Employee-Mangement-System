@@ -1,9 +1,22 @@
 import axios from "axios";
 
-const API = "https://dummy.restapiexample.com/api/v1";
+const api = axios.create({
+  baseURL: "https://jsonplaceholder.typicode.com",
+  timeout: 8000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export const fetchEmployees = () => axios.get(`${API}/employees`);
-export const deleteEmployee = (id) => axios.delete(`${API}/delete/${id}`);
-export const createEmployee = (data) => axios.post(`${API}/create`, data);
+
+export const fetchEmployees = () => api.get("/users");
+
+
+export const createEmployee = (data) =>
+  Promise.resolve({ data: { ...data, id: Date.now() } });
+
 export const updateEmployee = (id, data) =>
-  axios.put(`${API}/update/${id}`, data);
+  Promise.resolve({ data: { ...data, id } });
+
+export const deleteEmployee = (id) =>
+  Promise.resolve({ data: { success: true } });

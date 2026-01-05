@@ -7,46 +7,27 @@ const EmployeeProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const loadEmployees = async () => {
-  try {
-    const res = await fetchEmployees();
-    setEmployees(
-      res.data.data.map((e) => ({
-        ...e,
-        isActive: true,
-        gender: "Male",
-        dob: "1990-01-01",
-        state: "Telangana",
-      }))
-    );
-  } catch (err) {
-    console.warn("API failed, using fallback data");
+    try {
+      const res = await fetchEmployees();
 
-    setEmployees([
-      {
-        id: 1,
-        employee_name: "John Doe",
-        employee_age: 30,
-        employee_salary: 50000,
+      const normalized = res.data.map((u) => ({
+        id: u.id,
+        employee_name: u.name,
+        email: u.email,
+        state: u.address.city,
+        dob: "1992-01-01",              
+        gender: u.id % 2 ? "Male" : "Female",
         isActive: true,
-        gender: "Male",
-        dob: "1993-02-12",
-        state: "Telangana",
-      },
-      {
-        id: 2,
-        employee_name: "Jane Smith",
-        employee_age: 28,
-        employee_salary: 48000,
-        isActive: false,
-        gender: "Female",
-        dob: "1995-06-18",
-        state: "Karnataka",
-      },
-    ]);
-  } finally {
-    setLoading(false);
-  }
-};
+        avatar: "/avatar.png",
+      }));
+
+      setEmployees(normalized);
+    } catch (err) {
+      console.error("Failed to load employees", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     loadEmployees();

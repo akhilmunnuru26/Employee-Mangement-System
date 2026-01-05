@@ -1,5 +1,11 @@
 
 import { useEmployees } from "../../context/useEmployees"; 
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
+import { FaPrint } from "react-icons/fa6";
+
+
+
 
 
 const EmployeeRow = ({ emp }) => {
@@ -16,7 +22,11 @@ const EmployeeRow = ({ emp }) => {
     <tr className="border-t text-center">
       <td className="p-2">{emp.id}</td>
       <td>
-        <img src="/avatar.png" className="w-8 h-8 mx-auto rounded-full" />
+        <img
+  src={emp.avatar || "/avatar.png"}
+  className="w-8 h-8 mx-auto rounded-full"
+/>
+
       </td>
       <td>{emp.employee_name}</td>
       <td>{emp.gender}</td>
@@ -32,13 +42,66 @@ const EmployeeRow = ({ emp }) => {
           {emp.isActive ? "Active" : "Inactive"}
         </button>
       </td>
-      <td className="space-x-2">
-        <button className="text-blue-600">Edit</button>
-        <button className="text-red-600">Delete</button>
+      {/* <td className="space-x-2 ">
+        <button className="text-blue-600" name="edit"><FaEdit className="text-lg"/></button>
+        <button className="text-red-600"><MdDeleteOutline className="text-xl mt-2"/></button>
         <button onClick={() => window.print()} className="text-gray-600">
-          Print
+          <FaPrint className="text-lg mt-2"/>
         </button>
-      </td>
+      </td> */}
+      <td className="px-3 py-2">
+  <div className="flex items-center justify-center gap-4">
+    
+    <div className="relative group">
+      <button
+        aria-label="Edit employee"
+        className="text-blue-600 hover:text-blue-800 transition"
+      >
+        <FaEdit className="text-lg" />
+      </button>
+
+      <span className="absolute -top-8 left-1/2 -translate-x-1/2 
+        scale-0 group-hover:scale-100 transition
+        bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+        Edit
+      </span>
+    </div>
+
+    
+    <div className="relative group">
+      <button
+        aria-label="Delete employee"
+        className="text-red-600 hover:text-red-800 transition"
+      >
+        <MdDeleteOutline className="text-xl" />
+      </button>
+
+      <span className="absolute -top-8 left-1/2 -translate-x-1/2
+        scale-0 group-hover:scale-100 transition
+        bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+        Delete
+      </span>
+    </div>
+
+    
+    <div className="relative group">
+      <button
+        onClick={() => window.print()}
+        aria-label="Print employee"
+        className="text-gray-600 hover:text-gray-800 transition"
+      >
+        <FaPrint className="text-lg" />
+      </button>
+
+      <span className="absolute -top-8 left-1/2 -translate-x-1/2
+        scale-0 group-hover:scale-100 transition
+        bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+        Print
+      </span>
+    </div>
+  </div>
+</td>
+
     </tr>
   );
 };
